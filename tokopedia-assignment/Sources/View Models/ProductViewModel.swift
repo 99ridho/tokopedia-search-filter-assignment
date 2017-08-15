@@ -70,14 +70,21 @@ struct ProductViewModel {
     let productApiClient = ProductApiClient()
     let disposeBag = DisposeBag()
     
-    init() {
+    private static var _instance: ProductViewModel? = nil
+    static var sharedInstance: ProductViewModel {
+        if _instance == nil {
+            _instance = ProductViewModel()
+        }
+        
+        return _instance!
+    }
+    
+    private init() {
         refreshInitialProductsData()
     }
     
     func refreshInitialProductsData() {
         var req = ProductRequest()
-        req.priceMin = 10000
-        req.priceMax = 100000
         
         self.requestNewProductsData(req: req)
     }
@@ -94,6 +101,8 @@ struct ProductViewModel {
                 }
                 
                 self.productsObservable.onNext(formattedView)
+            }, onError: { err in 
+                self.productsObservable.onNext([])
             })
             .addDisposableTo(disposeBag)
     }

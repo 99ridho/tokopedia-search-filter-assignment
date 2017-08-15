@@ -17,7 +17,7 @@ class ProductViewController: UIViewController {
 
     @IBOutlet weak var productCollectionView: UICollectionView!
     
-    let viewModel = ProductViewModel()
+    let viewModel = ProductViewModel.sharedInstance
     let disposeBag = DisposeBag()
     
     let productCollViewReusableId = "product_cell"

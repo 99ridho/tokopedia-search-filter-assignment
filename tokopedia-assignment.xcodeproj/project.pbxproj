@@ -19,6 +19,8 @@
 		7F96F5BD1F42BA3200CB80D7 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5BC1F42BA3200CB80D7 /* ProductViewModel.swift */; };
 		7F96F5C01F42D80400CB80D7 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5BF1F42D80400CB80D7 /* ProductViewController.swift */; };
 		7F96F5C31F42D9E800CB80D7 /* ProductApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5C21F42D9E800CB80D7 /* ProductApiClient.swift */; };
+		7F96F5C51F42EE0C00CB80D7 /* ProductFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5C41F42EE0C00CB80D7 /* ProductFilterTableViewController.swift */; };
+		7F96F5C81F42EF2F00CB80D7 /* Formatter+IntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5C71F42EF2F00CB80D7 /* Formatter+IntegerExtensions.swift */; };
 		7FA49C851F42A62800F0A45F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA49C841F42A62800F0A45F /* AppDelegate.swift */; };
 		7FA49C8D1F42A62800F0A45F /* tokopedia_assignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FA49C8B1F42A62800F0A45F /* tokopedia_assignment.xcdatamodeld */; };
 		7FA49C9D1F42A62800F0A45F /* tokopedia_assignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA49C9C1F42A62800F0A45F /* tokopedia_assignmentTests.swift */; };
@@ -48,6 +50,8 @@
 		7F96F5BC1F42BA3200CB80D7 /* ProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		7F96F5BF1F42D80400CB80D7 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		7F96F5C21F42D9E800CB80D7 /* ProductApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductApiClient.swift; sourceTree = "<group>"; };
+		7F96F5C41F42EE0C00CB80D7 /* ProductFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductFilterTableViewController.swift; sourceTree = "<group>"; };
+		7F96F5C71F42EF2F00CB80D7 /* Formatter+IntegerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Formatter+IntegerExtensions.swift"; sourceTree = "<group>"; };
 		7FA49C811F42A62800F0A45F /* tokopedia-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tokopedia-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA49C841F42A62800F0A45F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA49C8C1F42A62800F0A45F /* tokopedia_assignment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tokopedia_assignment.xcdatamodel; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 		7F96F59F1F42AA4200CB80D7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7F96F5C61F42EF1000CB80D7 /* Extensions */,
 				7F96F5AB1F42AB0B00CB80D7 /* View Models */,
 				7F96F5AA1F42AB0600CB80D7 /* Models */,
 				7F96F5A91F42AB0000CB80D7 /* Views */,
@@ -181,8 +186,17 @@
 		7F96F5C11F42D82600CB80D7 /* Product Filter */ = {
 			isa = PBXGroup;
 			children = (
+				7F96F5C41F42EE0C00CB80D7 /* ProductFilterTableViewController.swift */,
 			);
 			path = "Product Filter";
+			sourceTree = "<group>";
+		};
+		7F96F5C61F42EF1000CB80D7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F96F5C71F42EF2F00CB80D7 /* Formatter+IntegerExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7FA49C781F42A62800F0A45F = {
@@ -452,11 +466,13 @@
 			files = (
 				7F96F5B81F42AF6A00CB80D7 /* ProductResponse.swift in Sources */,
 				7F96F5C31F42D9E800CB80D7 /* ProductApiClient.swift in Sources */,
+				7F96F5C81F42EF2F00CB80D7 /* Formatter+IntegerExtensions.swift in Sources */,
 				7F96F5BB1F42B7BF00CB80D7 /* ProductCollectionViewCell.swift in Sources */,
 				7FA49C8D1F42A62800F0A45F /* tokopedia_assignment.xcdatamodeld in Sources */,
 				7F96F5B61F42AC5300CB80D7 /* ProductRequest.swift in Sources */,
 				7FA49C851F42A62800F0A45F /* AppDelegate.swift in Sources */,
 				7F96F5BD1F42BA3200CB80D7 /* ProductViewModel.swift in Sources */,
+				7F96F5C51F42EE0C00CB80D7 /* ProductFilterTableViewController.swift in Sources */,
 				7F96F5C01F42D80400CB80D7 /* ProductViewController.swift in Sources */,
 				7F96F5B41F42AC2D00CB80D7 /* ProductApiEndpoints.swift in Sources */,
 			);
