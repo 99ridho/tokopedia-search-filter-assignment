@@ -24,7 +24,7 @@ class ProductFilterTableViewController: UITableViewController {
         super.viewDidLoad()
 
         setupSliderValueChangedEvent()
-        setupSelectShopTypeFilter()
+        setupStaticTableViewWithAction()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -32,11 +32,13 @@ class ProductFilterTableViewController: UITableViewController {
         initComponentValue()
     }
     
+    // update price range label
     private func updatePriceRangeLabel() {
         self.minPriceLabel.text = "Rp. \(self.priceRangeSlider.lowerValue.formattedWithSeparator)"
         self.maxPriceLabel.text = "Rp. \(self.priceRangeSlider.upperValue.formattedWithSeparator)"
     }
     
+    // set slider value changed event, and update price range label
     private func setupSliderValueChangedEvent() {
         self.updatePriceRangeLabel()
         priceRangeSlider
@@ -48,7 +50,8 @@ class ProductFilterTableViewController: UITableViewController {
             .addDisposableTo(disposeBag)
     }
     
-    private func setupSelectShopTypeFilter() {
+    // setting up static table view with action, when selecting store type & tapping apply button
+    private func setupStaticTableViewWithAction() {
         self.tableView
             .rx
             .itemSelected
@@ -77,6 +80,7 @@ class ProductFilterTableViewController: UITableViewController {
             .addDisposableTo(disposeBag)
     }
     
+    // saving filter parameters at static shared data
     private func saveProductFilterParameter() {
         ProductFilterSharedData.isWholesale = self.isWholesaleSwitch.isOn
         ProductFilterSharedData.priceMax = self.priceRangeSlider.upperValue
@@ -89,6 +93,7 @@ class ProductFilterTableViewController: UITableViewController {
         ProductFilterSharedData.fShop = goldMerchantCell?.accessoryType == .checkmark ? 2 : 0
     }
 
+    // initialize filter parameter components with static shared data
     private func initComponentValue() {
         self.isWholesaleSwitch.isOn = ProductFilterSharedData.isWholesale
         self.priceRangeSlider.upperValue = ProductFilterSharedData.priceMax
@@ -102,6 +107,7 @@ class ProductFilterTableViewController: UITableViewController {
         officialStoreCell?.accessoryType = ProductFilterSharedData.isOfficial ? .checkmark : .none
     }
     
+    // reset button action when tapped
     @IBAction func resetButtonWhenTapped(_ sender: UIBarButtonItem) {
         ProductFilterSharedData.resetToInitialValues()
         self.initComponentValue()

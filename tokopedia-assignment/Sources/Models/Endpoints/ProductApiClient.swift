@@ -15,6 +15,7 @@ struct ProductApiClient {
     
     private let provider = RxMoyaProvider<ProductApi>()
     
+    // request products data, and return response as observable
     func getProducts(req: ProductRequest) -> Observable<ProductResponse> {
         return provider
             .request(.getProduct(request: req))

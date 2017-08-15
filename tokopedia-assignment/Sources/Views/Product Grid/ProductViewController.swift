@@ -29,6 +29,7 @@ class ProductViewController: UIViewController {
         setupCollectionView()
     }
     
+    // setting up collection view with initial data & set collection view delegate
     private func setupCollectionView() {
         self.viewModel.refreshInitialProductsData()
         self.viewModel.productsObservable.bind(to: self.productCollectionView.rx.items) { [unowned self] cv, row, el in

@@ -11,60 +11,7 @@ import RxSwift
 import UIKit
 
 class ProductViewModel {
-    
-    var dummyData = Observable.of([
-        (
-            image: #imageLiteral(resourceName: "test-nokia-3310"),
-            productName: "Nokia 3310 KW Super #1",
-            price: "Rp. 20.000"
-        ),
-        (
-            image: #imageLiteral(resourceName: "test-nokia-3310"),
-            productName: "Nokia 3310 KW Super #1",
-            price: "Rp. 20.000"
-        ),
-        (
-            image: #imageLiteral(resourceName: "test-nokia-3310"),
-            productName: "Nokia 3310 KW Super #1",
-            price: "Rp. 20.000"
-        ),
-        (
-            image: #imageLiteral(resourceName: "test-nokia-3310"),
-            productName: "Nokia 3310 KW Super #1",
-            price: "Rp. 20.000"
-        ),
-        (
-            image: #imageLiteral(resourceName: "test-nokia-3310"),
-            productName: "Nokia 3310 KW Super #1",
-            price: "Rp. 20.000"
-        ),
-        (
-            image: #imageLiteral(resourceName: "test-nokia-3310"),
-            productName: "Nokia 3310 KW Super #1",
-            price: "Rp. 20.000"
-        ),
-        (
-            image: #imageLiteral(resourceName: "test-nokia-3310"),
-            productName: "Nokia 3310 KW Super #1",
-            price: "Rp. 20.000"
-        ),
-        (
-            image: #imageLiteral(resourceName: "test-nokia-3310"),
-            productName: "Nokia 3310 KW Super #1",
-            price: "Rp. 20.000"
-        ),
-        (
-            image: #imageLiteral(resourceName: "test-nokia-3310"),
-            productName: "Nokia 3310 KW Super #1",
-            price: "Rp. 20.000"
-        ),
-        (
-            image: #imageLiteral(resourceName: "test-nokia-3310"),
-            productName: "Nokia 3310 KW Super #1",
-            price: "Rp. 20.000"
-        )
-    ])
-    
+        
     typealias ProductCollectionViewCellData = (imageUrl: String, productName: String, price: String)
     let productsObservable = BehaviorSubject<[ProductCollectionViewCellData]>(value: [])
     let productApiClient = ProductApiClient()
@@ -87,12 +34,14 @@ class ProductViewModel {
         refreshInitialProductsData()
     }
     
+    // request the data at initial run of the app
     func refreshInitialProductsData() {
         let req = ProductRequest()
         
         self.requestNewProductsData(req: req)
     }
     
+    // requesting new products data
     private func requestNewProductsData(req: ProductRequest) {
         productApiClient.getProducts(req: req)
             .subscribe(onNext: { [unowned self] res in 
@@ -111,6 +60,7 @@ class ProductViewModel {
             .addDisposableTo(disposeBag)
     }
     
+    // requesting products data with filters applied
     func refreshProductsDataWithFilters(priceMin: Double = 0.0,
                                         priceMax: Double = 10000000.0,
                                         isWholesale: Bool = true,
@@ -134,6 +84,7 @@ class ProductViewModel {
         self.requestNewProductsData(req: req)
     }
     
+    // request products data infinity, to be shown at product grid
     func refreshProductsDataInfinity(priceMin: Double = 0.0,
                                      priceMax: Double = 10000000.0,
                                      isWholesale: Bool = true,
