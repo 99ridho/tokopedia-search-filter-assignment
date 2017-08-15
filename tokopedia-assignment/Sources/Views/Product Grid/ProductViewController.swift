@@ -22,6 +22,8 @@ class ProductViewController: UIViewController {
     
     let productCollViewReusableId = "product_cell"
     
+    var nextOffset: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -40,6 +42,21 @@ class ProductViewController: UIViewController {
             return cell
         }
         .addDisposableTo(disposeBag)
+        
+        self.productCollectionView.rx.didEndDragging
+            .subscribe(onNext: { [unowned self] _ in
+                if (self.productCollectionView.contentOffset.y >= (self.productCollectionView.contentSize.height - self.productCollectionView.frame.size.height)) {
+                    //reach bottom
+                    self.viewModel.refreshProductsDataInfinity(
+                        priceMin: ProductFilterSharedData.priceMin,
+                        priceMax: ProductFilterSharedData.priceMax,
+                        isWholesale: ProductFilterSharedData.isWholesale,
+                        isOfficial: ProductFilterSharedData.isOfficial,
+                        fShop: ProductFilterSharedData.fShop
+                    )
+                }
+            })
+            .addDisposableTo(disposeBag)
         
         self.productCollectionView.rx.setDelegate(self).addDisposableTo(disposeBag)
     }

@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import UIKit
 
-struct ProductViewModel {
+class ProductViewModel {
     
     var dummyData = Observable.of([
         (
@@ -70,6 +70,10 @@ struct ProductViewModel {
     let productApiClient = ProductApiClient()
     let disposeBag = DisposeBag()
     
+    var products: [ProductCollectionViewCellData] = []
+    
+    var startIndexProducts = 0
+    
     private static var _instance: ProductViewModel? = nil
     static var sharedInstance: ProductViewModel {
         if _instance == nil {
@@ -84,14 +88,14 @@ struct ProductViewModel {
     }
     
     func refreshInitialProductsData() {
-        var req = ProductRequest()
+        let req = ProductRequest()
         
         self.requestNewProductsData(req: req)
     }
     
     private func requestNewProductsData(req: ProductRequest) {
         productApiClient.getProducts(req: req)
-            .subscribe(onNext: { res in 
+            .subscribe(onNext: { [unowned self] res in 
                 let formattedView = res.data.map {
                     return (
                         imageUrl: $0.imageUri700!,
@@ -107,17 +111,20 @@ struct ProductViewModel {
             .addDisposableTo(disposeBag)
     }
     
-    func refreshProductsDataWithFilters(priceMin: Int = 0,
-                                        priceMax: Int = 10000000,
+    func refreshProductsDataWithFilters(priceMin: Double = 0.0,
+                                        priceMax: Double = 10000000.0,
                                         isWholesale: Bool = true,
                                         isOfficial: Bool = true,
                                         fShop: Int = 2,
                                         start: Int = 0,
                                         rows: Int = 10) {
      
+        self.startIndexProducts = 0
+        self.products.removeAll()
+        
         var req = ProductRequest()
-        req.priceMin = priceMin
-        req.priceMax = priceMax
+        req.priceMin = Int(priceMin)
+        req.priceMax = Int(priceMax)
         req.isWholesale = isWholesale
         req.isOfficial = isOfficial
         req.fShop = fShop
@@ -125,5 +132,42 @@ struct ProductViewModel {
         req.rows = rows
         
         self.requestNewProductsData(req: req)
+    }
+    
+    func refreshProductsDataInfinity(priceMin: Double = 0.0,
+                                     priceMax: Double = 10000000.0,
+                                     isWholesale: Bool = true,
+                                     isOfficial: Bool = true,
+                                     fShop: Int = 2,
+                                     start: Int = 0,
+                                     rows: Int = 10) {
+        
+        startIndexProducts += 10
+        
+        var req = ProductRequest()
+        req.priceMin = Int(priceMin)
+        req.priceMax = Int(priceMax)
+        req.isWholesale = isWholesale
+        req.isOfficial = isOfficial
+        req.fShop = fShop
+        req.start = startIndexProducts
+        req.rows = rows
+        
+        productApiClient.getProducts(req: req)
+            .subscribe(onNext: { [unowned self] res in 
+                let formattedView = res.data.map {
+                    return (
+                        imageUrl: $0.imageUri700!,
+                        productName: $0.name!,
+                        price: $0.price!
+                    )
+                }
+                
+                self.products.append(contentsOf: formattedView)
+                self.productsObservable.onNext(self.products)
+            }, onError: { err in 
+                self.productsObservable.onNext([])
+            })
+            .addDisposableTo(disposeBag)
     }
 }

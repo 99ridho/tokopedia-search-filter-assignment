@@ -21,6 +21,7 @@
 		7F96F5C31F42D9E800CB80D7 /* ProductApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5C21F42D9E800CB80D7 /* ProductApiClient.swift */; };
 		7F96F5C51F42EE0C00CB80D7 /* ProductFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5C41F42EE0C00CB80D7 /* ProductFilterTableViewController.swift */; };
 		7F96F5C81F42EF2F00CB80D7 /* Formatter+IntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5C71F42EF2F00CB80D7 /* Formatter+IntegerExtensions.swift */; };
+		7F96F5CA1F42FD5900CB80D7 /* ProductFilterSharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5C91F42FD5900CB80D7 /* ProductFilterSharedData.swift */; };
 		7FA49C851F42A62800F0A45F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA49C841F42A62800F0A45F /* AppDelegate.swift */; };
 		7FA49C8D1F42A62800F0A45F /* tokopedia_assignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FA49C8B1F42A62800F0A45F /* tokopedia_assignment.xcdatamodeld */; };
 		7FA49C9D1F42A62800F0A45F /* tokopedia_assignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA49C9C1F42A62800F0A45F /* tokopedia_assignmentTests.swift */; };
@@ -52,6 +53,7 @@
 		7F96F5C21F42D9E800CB80D7 /* ProductApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductApiClient.swift; sourceTree = "<group>"; };
 		7F96F5C41F42EE0C00CB80D7 /* ProductFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductFilterTableViewController.swift; sourceTree = "<group>"; };
 		7F96F5C71F42EF2F00CB80D7 /* Formatter+IntegerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Formatter+IntegerExtensions.swift"; sourceTree = "<group>"; };
+		7F96F5C91F42FD5900CB80D7 /* ProductFilterSharedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductFilterSharedData.swift; sourceTree = "<group>"; };
 		7FA49C811F42A62800F0A45F /* tokopedia-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tokopedia-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA49C841F42A62800F0A45F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA49C8C1F42A62800F0A45F /* tokopedia_assignment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tokopedia_assignment.xcdatamodel; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				7F96F5C41F42EE0C00CB80D7 /* ProductFilterTableViewController.swift */,
+				7F96F5C91F42FD5900CB80D7 /* ProductFilterSharedData.swift */,
 			);
 			path = "Product Filter";
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F96F5CA1F42FD5900CB80D7 /* ProductFilterSharedData.swift in Sources */,
 				7F96F5B81F42AF6A00CB80D7 /* ProductResponse.swift in Sources */,
 				7F96F5C31F42D9E800CB80D7 /* ProductApiClient.swift in Sources */,
 				7F96F5C81F42EF2F00CB80D7 /* Formatter+IntegerExtensions.swift in Sources */,

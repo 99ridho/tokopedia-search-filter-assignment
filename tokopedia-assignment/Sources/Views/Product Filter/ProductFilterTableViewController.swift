@@ -19,13 +19,17 @@ class ProductFilterTableViewController: UITableViewController {
     @IBOutlet weak var maxPriceLabel: UILabel!
     
     let disposeBag = DisposeBag()
-    var shopTypeFilter = (goldSelected: false, officialStore: false)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupSliderValueChangedEvent()
         setupSelectShopTypeFilter()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initComponentValue()
     }
     
     private func updatePriceRangeLabel() {
@@ -58,20 +62,49 @@ class ProductFilterTableViewController: UITableViewController {
                         cell?.accessoryType = .checkmark
                     }
                     
-                    if indexPath.row == 0 {
-                        self.shopTypeFilter.goldSelected = !self.shopTypeFilter.goldSelected
-                    } else if indexPath.row == 1 {
-                        self.shopTypeFilter.officialStore = !self.shopTypeFilter.officialStore
-                    }
-                    
-                    print(self.shopTypeFilter)
+                } else if indexPath.section == 2 {
+                    self.saveProductFilterParameter()
+                    ProductViewModel.sharedInstance.refreshProductsDataWithFilters(
+                        priceMin: ProductFilterSharedData.priceMin,
+                        priceMax: ProductFilterSharedData.priceMax,
+                        isWholesale: ProductFilterSharedData.isWholesale,
+                        isOfficial: ProductFilterSharedData.isOfficial,
+                        fShop: ProductFilterSharedData.fShop
+                    )
+                    self.navigationController?.popViewController(animated: true)
                 }
             })
             .addDisposableTo(disposeBag)
     }
-
-    @IBAction func productFilterButtonWhenTapped(_ sender: UIBarButtonItem) {
+    
+    private func saveProductFilterParameter() {
+        ProductFilterSharedData.isWholesale = self.isWholesaleSwitch.isOn
+        ProductFilterSharedData.priceMax = self.priceRangeSlider.upperValue
+        ProductFilterSharedData.priceMin = self.priceRangeSlider.lowerValue
         
+        let goldMerchantCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1))
+        let officialStoreCell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 1))
+        
+        ProductFilterSharedData.isOfficial = officialStoreCell?.accessoryType == .checkmark
+        ProductFilterSharedData.fShop = goldMerchantCell?.accessoryType == .checkmark ? 2 : 0
+    }
+
+    private func initComponentValue() {
+        self.isWholesaleSwitch.isOn = ProductFilterSharedData.isWholesale
+        self.priceRangeSlider.upperValue = ProductFilterSharedData.priceMax
+        self.priceRangeSlider.lowerValue = ProductFilterSharedData.priceMin
+        self.updatePriceRangeLabel()
+        
+        let goldMerchantCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1))
+        let officialStoreCell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 1))
+        
+        goldMerchantCell?.accessoryType = ProductFilterSharedData.fShop == 2 ? .checkmark : .none
+        officialStoreCell?.accessoryType = ProductFilterSharedData.isOfficial ? .checkmark : .none
+    }
+    
+    @IBAction func resetButtonWhenTapped(_ sender: UIBarButtonItem) {
+        ProductFilterSharedData.resetToInitialValues()
+        self.initComponentValue()
     }
     
     override func didReceiveMemoryWarning() {

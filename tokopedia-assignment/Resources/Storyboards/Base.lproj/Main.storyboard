@@ -301,6 +301,33 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="QMU-Xm-QF3">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rsW-3g-6MV">
+                                        <rect key="frame" x="0.0" y="414" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rsW-3g-6MV" id="lOc-Qi-Urb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sw1-5j-cJb">
+                                                    <rect key="frame" x="8" y="11" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.3803921569" green="0.72941176470000002" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="Sw1-5j-cJb" firstAttribute="leading" secondItem="lOc-Qi-Urb" secondAttribute="leadingMargin" id="ZQS-Cd-8PC"/>
+                                                <constraint firstItem="Sw1-5j-cJb" firstAttribute="trailing" secondItem="lOc-Qi-Urb" secondAttribute="trailingMargin" id="mkG-G3-dPc"/>
+                                                <constraint firstItem="Sw1-5j-cJb" firstAttribute="top" secondItem="lOc-Qi-Urb" secondAttribute="topMargin" constant="3" id="oec-SI-xNX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Sw1-5j-cJb" secondAttribute="bottom" constant="3.5" id="p6g-GD-BJP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="gcC-kj-URG" id="343-Fh-NAG"/>
@@ -308,9 +335,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search Filter" id="Y70-JS-vuI">
-                        <barButtonItem key="rightBarButtonItem" title="Filter" id="fV6-za-2Ya">
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="fV6-za-2Ya">
                             <connections>
-                                <action selector="productFilterButtonWhenTapped:" destination="gcC-kj-URG" id="iGO-J6-KMj"/>
+                                <action selector="resetButtonWhenTapped:" destination="gcC-kj-URG" id="fHM-FB-Mcd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
