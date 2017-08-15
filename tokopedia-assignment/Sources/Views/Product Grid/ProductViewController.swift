@@ -11,6 +11,7 @@ import Moya
 import RxSwift
 import RxCocoa
 import Moya_ObjectMapper
+import SDWebImage
 
 class ProductViewController: UIViewController {
 
@@ -27,11 +28,12 @@ class ProductViewController: UIViewController {
     }
     
     private func setupCollectionView() {
-        self.viewModel.dummyData.bind(to: self.productCollectionView.rx.items) { [unowned self] cv, row, el in
+        self.viewModel.refreshInitialProductsData()
+        self.viewModel.productsObservable.bind(to: self.productCollectionView.rx.items) { [unowned self] cv, row, el in
             let indexPath = IndexPath(row: row, section: 0)
             let cell = cv.dequeueReusableCell(withReuseIdentifier: self.productCollViewReusableId, for: indexPath) as! ProductCollectionViewCell
             
-            cell.productImageView.image = el.image
+            cell.productImageView.sd_setImage(with: URL(string: el.imageUrl), placeholderImage: #imageLiteral(resourceName: "img-placeholder"))
             cell.productNameLabel.text = el.productName
             cell.productPriceLabel.text = el.price
             

@@ -12,12 +12,13 @@
 		7F96F5A11F42AAAF00CB80D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F96F5A01F42AAAF00CB80D7 /* Assets.xcassets */; };
 		7F96F5A71F42AACD00CB80D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F96F5A31F42AACD00CB80D7 /* LaunchScreen.storyboard */; };
 		7F96F5A81F42AACD00CB80D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F96F5A51F42AACD00CB80D7 /* Main.storyboard */; };
-		7F96F5AD1F42AB6A00CB80D7 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5AC1F42AB6A00CB80D7 /* ProductViewController.swift */; };
 		7F96F5B41F42AC2D00CB80D7 /* ProductApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5B31F42AC2D00CB80D7 /* ProductApiEndpoints.swift */; };
 		7F96F5B61F42AC5300CB80D7 /* ProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5B51F42AC5300CB80D7 /* ProductRequest.swift */; };
 		7F96F5B81F42AF6A00CB80D7 /* ProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5B71F42AF6A00CB80D7 /* ProductResponse.swift */; };
 		7F96F5BB1F42B7BF00CB80D7 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5BA1F42B7BF00CB80D7 /* ProductCollectionViewCell.swift */; };
 		7F96F5BD1F42BA3200CB80D7 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5BC1F42BA3200CB80D7 /* ProductViewModel.swift */; };
+		7F96F5C01F42D80400CB80D7 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5BF1F42D80400CB80D7 /* ProductViewController.swift */; };
+		7F96F5C31F42D9E800CB80D7 /* ProductApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F5C21F42D9E800CB80D7 /* ProductApiClient.swift */; };
 		7FA49C851F42A62800F0A45F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA49C841F42A62800F0A45F /* AppDelegate.swift */; };
 		7FA49C8D1F42A62800F0A45F /* tokopedia_assignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FA49C8B1F42A62800F0A45F /* tokopedia_assignment.xcdatamodeld */; };
 		7FA49C9D1F42A62800F0A45F /* tokopedia_assignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA49C9C1F42A62800F0A45F /* tokopedia_assignmentTests.swift */; };
@@ -40,12 +41,13 @@
 		7F96F5A01F42AAAF00CB80D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F96F5A41F42AACD00CB80D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F96F5A61F42AACD00CB80D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		7F96F5AC1F42AB6A00CB80D7 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		7F96F5B31F42AC2D00CB80D7 /* ProductApiEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductApiEndpoints.swift; sourceTree = "<group>"; };
 		7F96F5B51F42AC5300CB80D7 /* ProductRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRequest.swift; sourceTree = "<group>"; };
 		7F96F5B71F42AF6A00CB80D7 /* ProductResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductResponse.swift; sourceTree = "<group>"; };
 		7F96F5BA1F42B7BF00CB80D7 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F96F5BC1F42BA3200CB80D7 /* ProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		7F96F5BF1F42D80400CB80D7 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		7F96F5C21F42D9E800CB80D7 /* ProductApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductApiClient.swift; sourceTree = "<group>"; };
 		7FA49C811F42A62800F0A45F /* tokopedia-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tokopedia-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA49C841F42A62800F0A45F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA49C8C1F42A62800F0A45F /* tokopedia_assignment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tokopedia_assignment.xcdatamodel; sourceTree = "<group>"; };
@@ -110,8 +112,9 @@
 		7F96F5A91F42AB0000CB80D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7F96F5C11F42D82600CB80D7 /* Product Filter */,
+				7F96F5BE1F42D7B800CB80D7 /* Product Grid */,
 				7F96F5B91F42B79D00CB80D7 /* Cells */,
-				7F96F5AC1F42AB6A00CB80D7 /* ProductViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				7F96F5B31F42AC2D00CB80D7 /* ProductApiEndpoints.swift */,
+				7F96F5C21F42D9E800CB80D7 /* ProductApiClient.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -164,6 +168,21 @@
 				7F96F5BA1F42B7BF00CB80D7 /* ProductCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		7F96F5BE1F42D7B800CB80D7 /* Product Grid */ = {
+			isa = PBXGroup;
+			children = (
+				7F96F5BF1F42D80400CB80D7 /* ProductViewController.swift */,
+			);
+			path = "Product Grid";
+			sourceTree = "<group>";
+		};
+		7F96F5C11F42D82600CB80D7 /* Product Filter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Product Filter";
 			sourceTree = "<group>";
 		};
 		7FA49C781F42A62800F0A45F = {
@@ -432,12 +451,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F96F5B81F42AF6A00CB80D7 /* ProductResponse.swift in Sources */,
-				7F96F5AD1F42AB6A00CB80D7 /* ProductViewController.swift in Sources */,
+				7F96F5C31F42D9E800CB80D7 /* ProductApiClient.swift in Sources */,
 				7F96F5BB1F42B7BF00CB80D7 /* ProductCollectionViewCell.swift in Sources */,
 				7FA49C8D1F42A62800F0A45F /* tokopedia_assignment.xcdatamodeld in Sources */,
 				7F96F5B61F42AC5300CB80D7 /* ProductRequest.swift in Sources */,
 				7FA49C851F42A62800F0A45F /* AppDelegate.swift in Sources */,
 				7F96F5BD1F42BA3200CB80D7 /* ProductViewModel.swift in Sources */,
+				7F96F5C01F42D80400CB80D7 /* ProductViewController.swift in Sources */,
 				7F96F5B41F42AC2D00CB80D7 /* ProductApiEndpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

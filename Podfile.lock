@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.0)
+  - Eureka (3.1.0)
   - Moya (8.0.5):
     - Moya/Core (= 8.0.5)
   - Moya-ObjectMapper/Core (2.3.2):
@@ -24,19 +25,25 @@ PODS:
   - RxSwift (3.6.1)
   - RxTest (3.6.1):
     - RxSwift (~> 3.6)
-  - WARangeSlider (1.1.1)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
+  - SwiftRangeSlider (1.0.2)
 
 DEPENDENCIES:
+  - Eureka
   - Moya-ObjectMapper/RxSwift
   - Moya/RxSwift
   - RxBlocking (~> 3.0)
   - RxCocoa (~> 3.0)
   - RxSwift (~> 3.0)
   - RxTest (~> 3.0)
-  - WARangeSlider
+  - SDWebImage (~> 4.0)
+  - SwiftRangeSlider
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Eureka: d6725c38d0dcdceaa331d1468f75e76315715ae0
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   Moya-ObjectMapper: 1b05f10bb69fb6c8750d497d2974c1c63c08c3a9
   ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
@@ -45,8 +52,9 @@ SPEC CHECKSUMS:
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   RxTest: 1d00348a7848c91ab5bf5d197d2378aa6b2bb356
-  WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SwiftRangeSlider: 111f9a70b8502c6b0607bd3fcf5662f47009a90c
 
-PODFILE CHECKSUM: 1cac4cfb3a18cb982fd60f807b567d210db3580f
+PODFILE CHECKSUM: eadbe3c12ac09689bff30bec8701b2280916e856
 
 COCOAPODS: 1.2.1
