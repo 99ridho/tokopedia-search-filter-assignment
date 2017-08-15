@@ -10,7 +10,6 @@ target 'tokopedia-assignment' do
   pod 'RxCocoa',    '~> 3.0'
   pod 'Moya/RxSwift'
   pod 'Moya-ObjectMapper/RxSwift'
-  pod "Eureka"
   pod 'SDWebImage', '~> 4.0'
   pod 'SwiftRangeSlider'
 
