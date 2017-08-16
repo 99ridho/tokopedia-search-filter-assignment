@@ -36,28 +36,7 @@ class ProductViewModel {
     
     // request the data at initial run of the app
     func refreshInitialProductsData() {
-        let req = ProductRequest()
-        
-        self.requestNewProductsData(req: req)
-    }
-    
-    // requesting new products data
-    private func requestNewProductsData(req: ProductRequest) {
-        productApiClient.getProducts(req: req)
-            .subscribe(onNext: { [unowned self] res in 
-                let formattedView = res.data.map {
-                    return (
-                        imageUrl: $0.imageUri700!,
-                        productName: $0.name!,
-                        price: $0.price!
-                    )
-                }
-                
-                self.productsObservable.onNext(formattedView)
-            }, onError: { err in 
-                self.productsObservable.onNext([])
-            })
-            .addDisposableTo(disposeBag)
+        self.refreshProductsDataWithFilters()
     }
     
     // requesting products data with filters applied
@@ -81,7 +60,21 @@ class ProductViewModel {
         req.start = start
         req.rows = rows
         
-        self.requestNewProductsData(req: req)
+        productApiClient.getProducts(req: req)
+            .subscribe(onNext: { [unowned self] res in 
+                let formattedView = res.data.map {
+                    return (
+                        imageUrl: $0.imageUri700!,
+                        productName: $0.name!,
+                        price: $0.price!
+                    )
+                }
+                
+                self.productsObservable.onNext(formattedView)
+            }, onError: { err in 
+                self.productsObservable.onNext([])
+            })
+            .addDisposableTo(disposeBag)
     }
     
     // request products data infinity, to be shown at product grid
